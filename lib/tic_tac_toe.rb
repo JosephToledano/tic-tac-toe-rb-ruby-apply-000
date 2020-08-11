@@ -90,11 +90,7 @@ end
 
  #Checking to see if the game is over
  def over?(board)
-  if won?(board) || draw?(board)
-    return true
-  else
-    return false
-  end
+  won?(board) || draw?(board)
 end
 
 #Showing the "X" or "O" that has won the game
