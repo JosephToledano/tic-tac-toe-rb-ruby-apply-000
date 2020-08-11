@@ -21,8 +21,7 @@ end
 
 #Converting what the user inputs into an in index for the board
 def input_to_index(user_input)
-  index = user_input.to_i
-  index -= 1
+  user_input.to_i - 1
 end
 
 #Placing the move the user inputs on the board
