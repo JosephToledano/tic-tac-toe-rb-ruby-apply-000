@@ -71,22 +71,11 @@ end
 
 #Checking to see who won
 def won?(board)
-  WIN_COMBINATIONS.each {|winning_combo|
-    index0 = winning_combo[0]
-    index1 = winning_combo[1]
-    index2 = winning_combo[2]
-
-    position_1 = board[index0]
-    position_2 = board[index1]
-    position_3 = board[index2]
-
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return winning_combo
-    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-      return winning_combo
-    end
-  }
-  return false
+  WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+      board[combo[1]] == board[combo[2]] &&
+      position_taken?(board, combo[0])
+  end
 end
 
 #Checking to see if every space on the board is taken
