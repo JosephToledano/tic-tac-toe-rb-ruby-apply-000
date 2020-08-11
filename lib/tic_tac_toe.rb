@@ -32,7 +32,7 @@ end
 
 #Checking if the move someone made is in a spot already filled
 def position_taken?(board, index)
-  !(board[index].nil? || board[index] == " ")
+  board[index] == 'X' || board[index] == 'O'
 end
 
 #Checking to see if the move the user made is possible
@@ -66,13 +66,7 @@ end
 
 #Checking who's turn it is, if its odd than it's X's turn
 def current_player(board)
-  turn_counter = turn_count(board)
-  if turn_count(board) % 2 == 0
-    player = 'X'
-  else
-    player = 'O'
-  end
-  return player
+  turn_count(board).even? ? 'X' : 'O'
 end
 
 #Checking to see who won
