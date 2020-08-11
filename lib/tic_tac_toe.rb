@@ -55,13 +55,7 @@ end
 
 #Counting how many moves have been made
 def turn_count(board)
-  moves = 0
-  board.each { |turn|
-    if turn == "X" || turn == "O"
-      moves +=1
-    end
-  }
-  return moves
+  board.count { |token| token == 'X' || token == 'O' }
 end
 
 #Checking who's turn it is, if its odd than it's X's turn
